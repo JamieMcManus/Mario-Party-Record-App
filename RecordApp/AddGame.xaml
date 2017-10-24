@@ -1,0 +1,47 @@
+﻿<Page x:Class="RecordApp.AddGame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RecordApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="AddGame"  Height="350" Width="525">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="54*"/>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="76*"/>
+            <ColumnDefinition Width="76*"/>
+            <ColumnDefinition Width="154*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="79*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnToMain" FontFamily="Marlett" FontSize="20" Content="3" Margin="0,4,4,1" Width="50" Height="30"/>
+        <Label x:Name="lblName" Content="Player" Grid.Column="1" HorizontalAlignment="Center" Height="30" Margin="53,4,58,1" VerticalAlignment="Center" Width="58" FontWeight="Bold"/>
+        <Image x:Name="imgStar" Stretch="Fill" Source="images/star.jpg" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="10,4,0,0" VerticalAlignment="Top" Width="56"/>
+        <Image x:Name="imgCoin" Stretch="Fill" Source="images/coin.jpg" Grid.Column="3" HorizontalAlignment="Left" Height="29" Margin="10,5,0,0" VerticalAlignment="Top" Width="52"/>
+        <ComboBox x:Name="dbPlayer1" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="149"/>
+        <ComboBox x:Name="dbPlayer2" Grid.Column="1" HorizontalAlignment="Left" Margin="10,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="149"/>
+        <ComboBox x:Name="dbPlayer3" Grid.Column="1" HorizontalAlignment="Left" Margin="10,7,0,0" Grid.Row="3" VerticalAlignment="Top" Width="149"/>
+        <ComboBox x:Name="dbPlayer4" Grid.Column="1" HorizontalAlignment="Left" Margin="10,7,0,0" Grid.Row="4" VerticalAlignment="Top" Width="149"/>
+        <Button x:Name="btnAddGame" Content="Add Record" Grid.Column="1" HorizontalAlignment="Left" Margin="10,8,0,0" Grid.Row="6" VerticalAlignment="Top" Width="149"/>
+        <TextBox x:Name="txtP1Star" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtP2Star" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="10,7,0,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="txtP3Star" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="10,7,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="txtP4Star" Grid.Column="2" HorizontalAlignment="Left" Height="22" Margin="10,7,0,0" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="txtP1Coin" Grid.Column="3" HorizontalAlignment="Left" Height="22" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="txtP2Coin" Grid.Column="3" HorizontalAlignment="Left" Height="22" Margin="10,7,0,0" Grid.Row="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="txtP3Coin" Grid.Column="3" HorizontalAlignment="Left" Height="22" Margin="10,7,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
+        <TextBox x:Name="txtP4Coin" Grid.Column="3" HorizontalAlignment="Left" Height="22" Margin="10,7,0,0" Grid.Row="4" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="56"/>
+    </Grid>
+</Page>

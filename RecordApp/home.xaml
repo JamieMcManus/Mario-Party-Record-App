@@ -1,0 +1,33 @@
+﻿<Page x:Class="RecordApp.home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RecordApp"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="home" Height="350" Width="525">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="445*"/>
+            <ColumnDefinition Width="39*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="47*"/>
+            <RowDefinition Height="184*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="lbxGames" Grid.Column="1" HorizontalAlignment="Left" Height="184" Grid.Row="1" VerticalAlignment="Top" Width="220"/>
+        <ListBox x:Name="lbxPlayers" Grid.Column="1" HorizontalAlignment="Left" Height="184" Margin="225,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="220"/>
+        <Label x:Name="lblTitle" Content="Mario Party Records" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="27" Width="210"/>
+        <Button x:Name="btnAddGame" Content="Add Game" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
+        <Button x:Name="btnAddPlayer" Content="Add Player" Grid.Column="1" HorizontalAlignment="Left" Margin="105,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
+        <Button x:Name="button2" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="240,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
+        <Button x:Name="button3" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="345,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
+
+    </Grid>
+</Page>
