@@ -24,5 +24,15 @@ namespace RecordApp
         {
             InitializeComponent();
         }
+
+        private void btnAddGame_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("AddGame.xaml", UriKind.Relative));
+        }
+
+        private void btnAddPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("AddPlayer.xaml", UriKind.Relative));
+        }
     }
 }

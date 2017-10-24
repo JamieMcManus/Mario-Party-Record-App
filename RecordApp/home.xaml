@@ -24,8 +24,8 @@
         <ListBox x:Name="lbxGames" Grid.Column="1" HorizontalAlignment="Left" Height="184" Grid.Row="1" VerticalAlignment="Top" Width="220"/>
         <ListBox x:Name="lbxPlayers" Grid.Column="1" HorizontalAlignment="Left" Height="184" Margin="225,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="220"/>
         <Label x:Name="lblTitle" Content="Mario Party Records" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="27" Width="210"/>
-        <Button x:Name="btnAddGame" Content="Add Game" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
-        <Button x:Name="btnAddPlayer" Content="Add Player" Grid.Column="1" HorizontalAlignment="Left" Margin="105,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
+        <Button x:Name="btnAddGame" Click="btnAddGame_Click" Content="Add Game" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
+        <Button x:Name="btnAddPlayer" Click="btnAddPlayer_Click" Content="Add Player" Grid.Column="1" HorizontalAlignment="Left" Margin="105,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
         <Button x:Name="button2" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="240,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
         <Button x:Name="button3" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="345,0,0,0" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="100"/>
 

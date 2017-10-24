@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecordApp"
         mc:Ignorable="d"
-        Title="Mario Party Record App" Height="350" Width="525">
+        Title="Mario Party Record App" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
         <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
     </Grid>
