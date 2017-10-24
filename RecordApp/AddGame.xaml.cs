@@ -24,5 +24,10 @@ namespace RecordApp
         {
             InitializeComponent();
         }
+
+        private void btnToMain_Click(object sender, RoutedEventArgs e)
+        {
+            // next page
+        }
     }
 }

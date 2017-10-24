@@ -23,6 +23,7 @@ namespace RecordApp
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }

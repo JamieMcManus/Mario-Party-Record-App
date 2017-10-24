@@ -26,7 +26,7 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="79*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnToMain" FontFamily="Marlett" FontSize="20" Content="3" Margin="0,4,4,1" Width="50" Height="30"/>
+        <Button x:Name="btnToMain" FontFamily="Marlett" FontSize="20" Content="3" Margin="0,4,4,1" Width="50" Height="30" Click="btnToMain_Click"/>
         <Label x:Name="lblName" Content="Player" Grid.Column="1" HorizontalAlignment="Center" Height="30" Margin="53,4,58,1" VerticalAlignment="Center" Width="58" FontWeight="Bold"/>
         <Image x:Name="imgStar" Stretch="Fill" Source="images/star.jpg" Grid.Column="2" HorizontalAlignment="Left" Height="30" Margin="10,4,0,0" VerticalAlignment="Top" Width="56"/>
         <Image x:Name="imgCoin" Stretch="Fill" Source="images/coin.jpg" Grid.Column="3" HorizontalAlignment="Left" Height="29" Margin="10,5,0,0" VerticalAlignment="Top" Width="52"/>
