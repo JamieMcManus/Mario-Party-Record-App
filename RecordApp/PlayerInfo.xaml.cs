@@ -10,34 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace RecordApp
 {
     /// <summary>
-    /// Interaction logic for AddPlayer.xaml
+    /// Interaction logic for PlayerInfo.xaml
     /// </summary>
-    public partial class AddPlayer : Page
+    public partial class PlayerInfo : Page
     {
-        public AddPlayer()
+        public PlayerInfo()
         {
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btnToMain_Click(object sender, RoutedEventArgs e)
         {
-            // add new player
-
-
-
-            // return to home page
             this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
-
-
         }
 
-        private void btnToMain_Click(object sender, RoutedEventArgs e)
+        private void btnDeletePlayer_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
         }

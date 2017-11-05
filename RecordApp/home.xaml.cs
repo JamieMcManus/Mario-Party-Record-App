@@ -34,5 +34,10 @@ namespace RecordApp
         {
             this.NavigationService.Navigate(new Uri("AddPlayer.xaml", UriKind.Relative));
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("PlayerInfo.xaml", UriKind.Relative));
+        }
     }
 }

@@ -28,6 +28,19 @@ namespace RecordApp
         private void btnToMain_Click(object sender, RoutedEventArgs e)
         {
             // next page
+            this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
+        }
+
+        private void btnAddGame_Click(object sender, RoutedEventArgs e)
+        {
+            //Check if all info entered
+            
+            
+            //Create new Game
+
+            //Return to home page
+            this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
+
         }
     }
 }

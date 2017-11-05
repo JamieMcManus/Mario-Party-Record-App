@@ -1,0 +1,35 @@
+﻿<Page x:Class="RecordApp.PlayerInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RecordApp"
+        mc:Ignorable="d"
+        Title="PlayerInfo" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22*"/>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnDeletePlayer" Content="Delete" Grid.Column="1" Click="btnDeletePlayer_Click" HorizontalAlignment="Center" Margin="0,34,0,0" Grid.Row="5" VerticalAlignment="Top" Width="75"/>
+        <Image x:Name="profileImage" HorizontalAlignment="Center" Height="100" Margin="130,5,98,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblPlayerName" HorizontalContentAlignment="Center" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="10,0" VerticalAlignment="Top" Width="187" />
+        <Label x:Name="lblWin" HorizontalContentAlignment="Center" Content="Wins" Grid.Column="1" HorizontalAlignment="Left" Margin="15,5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="25" Width="55"/>
+        <Label x:Name="lblStar" HorizontalContentAlignment="Center" Content="Stars" Grid.Column="1" HorizontalAlignment="Left" Margin="15,5,0,0" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="55"/>
+        <Label x:Name="lblCoin" HorizontalContentAlignment="Center" Content="Coins" Grid.Column="1" HorizontalAlignment="Left" Margin="15,5,0,0" Grid.Row="4" VerticalAlignment="Top" Height="25" Width="55"/>
+        <Button x:Name="btnToMain" Click="btnToMain_Click" FontFamily="Marlett" FontSize="20" Content="3" Margin="10,0,95,106" Width="50" Height="30" Grid.RowSpan="2"/>
+        <Label x:Name="lblWinCount" Content="" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="90,5,0,0" Grid.Row="2" VerticalAlignment="Top" Width="60"/>
+        <Label x:Name="lblStarCount" Content="" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="90,5,0,0" Grid.Row="3" VerticalAlignment="Top" Width="60"/>
+        <Label x:Name="lblCoinCount" Content="" Grid.Column="1" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="90,5,0,0" Grid.Row="4" VerticalAlignment="Top" Width="60"/>
+
+    </Grid>
+</Page>
