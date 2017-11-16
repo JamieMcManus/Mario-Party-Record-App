@@ -41,5 +41,46 @@ namespace RecordApp
         {
             this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
         }
+
+        private void txtName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (txtName.Text == "Enter Name")
+            {
+                txtName.Clear();
+            }
+            
+        }
+         private void validatePlayerInfo()
+        {
+            if ( txtName.Text.Length > 4 && ddlSelectImage.SelectedItem !=null && txtName.Text!="Enter Name")
+            {
+                btnAddPlayer.IsEnabled = true;
+            }
+
+            
+            else
+            {
+               btnAddPlayer.IsEnabled = false;
+            }
+        }
+
+        private void txtName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtName.Text != "Enter Name")
+            {
+                validatePlayerInfo();
+            }
+            
+        }
+
+        private void ddlSelectImage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            validatePlayerInfo();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            btnAddPlayer.IsEnabled = false;
+        }
     }
 }

@@ -42,5 +42,93 @@ namespace RecordApp
             this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
 
         }
+
+        private void dbPlayer1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dbPlayer2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dbPlayer3_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dbPlayer4_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void txtP1Star_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtP2Star_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtP3Star_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtP4Star_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtP1Coin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtP2Coin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtP3Coin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtP4Coin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void verifyGameInfo()
+        {
+            if(dbPlayer1.SelectedItem==null || txtP1Coin.Text=="" || txtP1Star.Text == "")
+            {
+                btnAddGame.IsEnabled = false;
+            }
+            if (dbPlayer2.SelectedItem == null || txtP2Coin.Text == "" || txtP2Star.Text == "")
+            {
+                btnAddGame.IsEnabled = false;
+            }
+            if (dbPlayer3.SelectedItem == null || txtP3Coin.Text == "" || txtP3Star.Text == "")
+            {
+                btnAddGame.IsEnabled = false;
+            }
+            if (dbPlayer4.SelectedItem == null || txtP4Coin.Text == "" || txtP4Star.Text == "")
+            {
+                btnAddGame.IsEnabled = false;
+            }
+            else
+            {
+                btnAddGame.IsEnabled = true;
+            }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            btnAddGame.IsEnabled = false;
+        }
     }
 }
