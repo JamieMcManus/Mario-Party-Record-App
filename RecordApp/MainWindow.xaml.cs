@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity.SqlServer;
+
 
 namespace RecordApp
 {
@@ -20,6 +24,9 @@ namespace RecordApp
     /// </summary>
     public partial class MainWindow : Window
     {
+       
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -28,6 +35,8 @@ namespace RecordApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
+
             Main.Navigate(new home());
         }
     }

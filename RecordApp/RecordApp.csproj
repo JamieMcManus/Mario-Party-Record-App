@@ -84,21 +84,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="DBentityAccess.cs" />
+    <Compile Include="Game.cs">
+      <DependentUpon>recordGame.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gameInstance.cs">
+      <DependentUpon>recordGame.tt</DependentUpon>
+    </Compile>
     <Compile Include="NumValidator.cs" />
-    <Compile Include="Records.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Records.Context.tt</DependentUpon>
+    <Compile Include="player.cs">
+      <DependentUpon>recordGame.tt</DependentUpon>
     </Compile>
-    <Compile Include="Records.cs">
+    <Compile Include="recordGame.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Records.tt</DependentUpon>
+      <DependentUpon>recordGame.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Records.Designer.cs">
+    <Compile Include="recordGame.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Records.edmx</DependentUpon>
+      <DependentUpon>recordGame.tt</DependentUpon>
+    </Compile>
+    <Compile Include="recordGame.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>recordGame.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="topPlayer.cs">
+      <DependentUpon>recordGame.tt</DependentUpon>
     </Compile>
     <Page Include="AddGame.xaml">
       <SubType>Designer</SubType>
@@ -172,16 +186,18 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <EntityDeploy Include="Records.edmx">
+    <EntityDeploy Include="recordGame.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Records.Designer.cs</LastGenOutput>
+      <LastGenOutput>recordGame.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Records.edmx.diagram">
-      <DependentUpon>Records.edmx</DependentUpon>
+    <None Include="recordGame.edmx.diagram">
+      <DependentUpon>recordGame.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\coin.jpg" />
@@ -203,27 +219,22 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GameRecords.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="GameRecords_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>GameRecords.mdf</DependentUpon>
-    </Content>
     <Resource Include="images\random.jpg" />
-    <Content Include="Records.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Records.Context.cs</LastGenOutput>
-      <DependentUpon>Records.edmx</DependentUpon>
-    </Content>
-    <Content Include="Records.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Records.edmx</DependentUpon>
-      <LastGenOutput>Records.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="recordGame.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>recordGame.edmx</DependentUpon>
+      <LastGenOutput>recordGame.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="recordGame.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>recordGame.edmx</DependentUpon>
+      <LastGenOutput>recordGame.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

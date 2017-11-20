@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:RecordApp"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="home" Height="350" Width="525">
+      Title="home" Height="350" Width="525" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>

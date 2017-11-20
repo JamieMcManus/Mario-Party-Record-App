@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="recordsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="gameID" />
+          </Key>
+          <Property Name="gameID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateAdded" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gameInstance">
+          <Key>
+            <PropertyRef Name="instanceID" />
+          </Key>
+          <Property Name="instanceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gameId" Type="int" Nullable="false" />
+          <Property Name="playerId" Type="int" Nullable="false" />
+          <Property Name="stars" Type="int" Nullable="false" />
+          <Property Name="coins" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="players">
+          <Key>
+            <PropertyRef Name="playerId" />
+          </Key>
+          <Property Name="playerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="joinedOn" Type="date" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="imagePath" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'recordsDB.dbo.topPlayers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="topPlayers">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Stars" Type="int" />
+          <Property Name="Coins" Type="int" />
+        </EntityType>
+        <Association Name="FK__gameInsta__gameI__286302EC">
+          <End Role="Game" Type="Self.Game" Multiplicity="1" />
+          <End Role="gameInstance" Type="Self.gameInstance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="gameID" />
+            </Principal>
+            <Dependent Role="gameInstance">
+              <PropertyRef Name="gameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__gameInsta__playe__276EDEB3">
+          <End Role="players" Type="Self.players" Multiplicity="1" />
+          <End Role="gameInstance" Type="Self.gameInstance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="players">
+              <PropertyRef Name="playerId" />
+            </Principal>
+            <Dependent Role="gameInstance">
+              <PropertyRef Name="playerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="spAddPlayerRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="gameID" Type="int" Mode="In" />
+          <Parameter Name="playerID" Type="int" Mode="In" />
+          <Parameter Name="playerstars" Type="int" Mode="In" />
+          <Parameter Name="playercoins" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spNewGame" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="player1ID" Type="int" Mode="In" />
+          <Parameter Name="player1stars" Type="int" Mode="In" />
+          <Parameter Name="player1coins" Type="int" Mode="In" />
+          <Parameter Name="player2ID" Type="int" Mode="In" />
+          <Parameter Name="player2stars" Type="int" Mode="In" />
+          <Parameter Name="player2coins" Type="int" Mode="In" />
+          <Parameter Name="player3ID" Type="int" Mode="In" />
+          <Parameter Name="player3stars" Type="int" Mode="In" />
+          <Parameter Name="player3coins" Type="int" Mode="In" />
+          <Parameter Name="player4ID" Type="int" Mode="In" />
+          <Parameter Name="player4stars" Type="int" Mode="In" />
+          <Parameter Name="player4coins" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spNewUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="imagePath" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="recordsDBModelStoreContainer">
+          <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gameInstance" EntityType="Self.gameInstance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="players" EntityType="Self.players" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="topPlayers" EntityType="Self.topPlayers" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [topPlayers].[username] AS [username], 
+    [topPlayers].[Stars] AS [Stars], 
+    [topPlayers].[Coins] AS [Coins]
+    FROM [dbo].[topPlayers] AS [topPlayers]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__gameInsta__gameI__286302EC" Association="Self.FK__gameInsta__gameI__286302EC">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="gameInstance" EntitySet="gameInstance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__gameInsta__playe__276EDEB3" Association="Self.FK__gameInsta__playe__276EDEB3">
+            <End Role="players" EntitySet="players" />
+            <End Role="gameInstance" EntitySet="gameInstance" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="recordsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="gameID" />
+          </Key>
+          <Property Name="gameID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateAdded" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="gameInstances" Relationship="Self.FK__gameInsta__gameI__286302EC" FromRole="Game" ToRole="gameInstance" />
+        </EntityType>
+        <EntityType Name="gameInstance">
+          <Key>
+            <PropertyRef Name="instanceID" />
+          </Key>
+          <Property Name="instanceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gameId" Type="Int32" Nullable="false" />
+          <Property Name="playerId" Type="Int32" Nullable="false" />
+          <Property Name="stars" Type="Int32" Nullable="false" />
+          <Property Name="coins" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Game" Relationship="Self.FK__gameInsta__gameI__286302EC" FromRole="gameInstance" ToRole="Game" />
+          <NavigationProperty Name="player" Relationship="Self.FK__gameInsta__playe__276EDEB3" FromRole="gameInstance" ToRole="players" />
+        </EntityType>
+        <EntityType Name="player">
+          <Key>
+            <PropertyRef Name="playerId" />
+          </Key>
+          <Property Name="playerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="joinedOn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagePath" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="gameInstances" Relationship="Self.FK__gameInsta__playe__276EDEB3" FromRole="players" ToRole="gameInstance" />
+        </EntityType>
+        <EntityType Name="topPlayer">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Stars" Type="Int32" />
+          <Property Name="Coins" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__gameInsta__gameI__286302EC">
+          <End Role="Game" Type="Self.Game" Multiplicity="1" />
+          <End Role="gameInstance" Type="Self.gameInstance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="gameID" />
+            </Principal>
+            <Dependent Role="gameInstance">
+              <PropertyRef Name="gameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__gameInsta__playe__276EDEB3">
+          <End Role="players" Type="Self.player" Multiplicity="1" />
+          <End Role="gameInstance" Type="Self.gameInstance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="players">
+              <PropertyRef Name="playerId" />
+            </Principal>
+            <Dependent Role="gameInstance">
+              <PropertyRef Name="playerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="recordsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Games" EntityType="Self.Game" />
+          <EntitySet Name="gameInstances" EntityType="Self.gameInstance" />
+          <EntitySet Name="players" EntityType="Self.player" />
+          <EntitySet Name="topPlayers" EntityType="Self.topPlayer" />
+          <AssociationSet Name="FK__gameInsta__gameI__286302EC" Association="Self.FK__gameInsta__gameI__286302EC">
+            <End Role="Game" EntitySet="Games" />
+            <End Role="gameInstance" EntitySet="gameInstances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__gameInsta__playe__276EDEB3" Association="Self.FK__gameInsta__playe__276EDEB3">
+            <End Role="players" EntitySet="players" />
+            <End Role="gameInstance" EntitySet="gameInstances" />
+          </AssociationSet>
+          <FunctionImport Name="spAddPlayerRecord">
+            <Parameter Name="gameID" Mode="In" Type="Int32" />
+            <Parameter Name="playerID" Mode="In" Type="Int32" />
+            <Parameter Name="playerstars" Mode="In" Type="Int32" />
+            <Parameter Name="playercoins" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spNewGame">
+            <Parameter Name="player1ID" Mode="In" Type="Int32" />
+            <Parameter Name="player1stars" Mode="In" Type="Int32" />
+            <Parameter Name="player1coins" Mode="In" Type="Int32" />
+            <Parameter Name="player2ID" Mode="In" Type="Int32" />
+            <Parameter Name="player2stars" Mode="In" Type="Int32" />
+            <Parameter Name="player2coins" Mode="In" Type="Int32" />
+            <Parameter Name="player3ID" Mode="In" Type="Int32" />
+            <Parameter Name="player3stars" Mode="In" Type="Int32" />
+            <Parameter Name="player3coins" Mode="In" Type="Int32" />
+            <Parameter Name="player4ID" Mode="In" Type="Int32" />
+            <Parameter Name="player4stars" Mode="In" Type="Int32" />
+            <Parameter Name="player4coins" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spNewUser">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="imagePath" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="recordsDBModelStoreContainer" CdmEntityContainer="recordsDBEntities">
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="recordsDBModel.Game">
+              <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="gameID" ColumnName="gameID" />
+                <ScalarProperty Name="dateAdded" ColumnName="dateAdded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gameInstances">
+            <EntityTypeMapping TypeName="recordsDBModel.gameInstance">
+              <MappingFragment StoreEntitySet="gameInstance">
+                <ScalarProperty Name="instanceID" ColumnName="instanceID" />
+                <ScalarProperty Name="gameId" ColumnName="gameId" />
+                <ScalarProperty Name="playerId" ColumnName="playerId" />
+                <ScalarProperty Name="stars" ColumnName="stars" />
+                <ScalarProperty Name="coins" ColumnName="coins" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="players">
+            <EntityTypeMapping TypeName="recordsDBModel.player">
+              <MappingFragment StoreEntitySet="players">
+                <ScalarProperty Name="playerId" ColumnName="playerId" />
+                <ScalarProperty Name="joinedOn" ColumnName="joinedOn" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="imagePath" ColumnName="imagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="topPlayers">
+            <EntityTypeMapping TypeName="recordsDBModel.topPlayer">
+              <MappingFragment StoreEntitySet="topPlayers">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="Stars" ColumnName="Stars" />
+                <ScalarProperty Name="Coins" ColumnName="Coins" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spAddPlayerRecord" FunctionName="recordsDBModel.Store.spAddPlayerRecord" />
+          <FunctionImportMapping FunctionImportName="spNewGame" FunctionName="recordsDBModel.Store.spNewGame" />
+          <FunctionImportMapping FunctionImportName="spNewUser" FunctionName="recordsDBModel.Store.spNewUser" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

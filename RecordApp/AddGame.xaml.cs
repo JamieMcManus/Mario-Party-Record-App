@@ -20,6 +20,8 @@ namespace RecordApp
     /// </summary>
     public partial class AddGame : Page
     {
+        public recordsDBEntities db = new recordsDBEntities();
+
         public AddGame()
         {
             InitializeComponent();
@@ -34,9 +36,19 @@ namespace RecordApp
         private void btnAddGame_Click(object sender, RoutedEventArgs e)
         {
             //Check if all info entered
-            
-            
+
+
             //Create new Game
+            int p1ID = Convert.ToInt32(dbPlayer1.SelectedValue);
+            int p2ID = Convert.ToInt32(dbPlayer2.SelectedValue);
+            int p3ID = Convert.ToInt32(dbPlayer3.SelectedValue);
+            int p4ID = Convert.ToInt32(dbPlayer4.SelectedValue);
+
+            DBConnection conect = new DBConnection();
+            conect.OpenConnection();
+            //conect.AddGame()
+            conect.AddGame(p1ID, Convert.ToInt32(txtP1Star.Text), Convert.ToInt32(txtP1Coin.Text), p2ID, Convert.ToInt32(txtP2Star.Text), Convert.ToInt32(txtP2Coin.Text), p3ID, Convert.ToInt32(txtP3Star.Text), Convert.ToInt32(txtP3Coin.Text), p4ID, Convert.ToInt32(txtP4Star.Text), Convert.ToInt32(txtP4Coin.Text));
+            conect.CloseConnection();
 
             //Return to home page
             this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
@@ -45,62 +57,62 @@ namespace RecordApp
 
         private void dbPlayer1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void dbPlayer2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void dbPlayer3_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void dbPlayer4_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void txtP1Star_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void txtP2Star_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void txtP3Star_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void txtP4Star_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void txtP1Coin_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void txtP2Coin_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void txtP3Coin_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
 
         private void txtP4Coin_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            verifyGameInfo();
         }
         private void verifyGameInfo()
         {
@@ -124,11 +136,33 @@ namespace RecordApp
             {
                 btnAddGame.IsEnabled = true;
             }
+           
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            btnAddGame.IsEnabled = false;
+           btnAddGame.IsEnabled = false;
+            var Query = from c in db.players
+                        select c;
+            InitializeComponent();
+
+            dbPlayer1.ItemsSource = Query.ToList();
+            dbPlayer1.DisplayMemberPath = "username";
+            dbPlayer1.SelectedValuePath = "playerId";
+
+            dbPlayer2.ItemsSource = Query.ToList();
+            dbPlayer2.DisplayMemberPath = "username";
+            dbPlayer2.SelectedValuePath = "playerId";
+
+            dbPlayer3.ItemsSource = Query.ToList();
+            dbPlayer3.DisplayMemberPath = "username";
+            dbPlayer3.SelectedValuePath = "playerId";
+
+            dbPlayer4.ItemsSource = Query.ToList();
+            dbPlayer4.DisplayMemberPath = "username";
+            dbPlayer4.SelectedValuePath = "playerId";
+
+            
         }
     }
 }

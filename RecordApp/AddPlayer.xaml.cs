@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace RecordApp
 {
@@ -28,10 +31,24 @@ namespace RecordApp
         private void button_Click(object sender, RoutedEventArgs e)
         {
             // add new player
+            // var username = new SqlParameter("@username",txtName.Text);
 
-
-
-            // return to home page
+            /* player p = new player();
+             p.username = txtName.Text;
+             DateTime d =  DateTime.Today;
+             p.joinedOn = d;
+             p.imagePath = ddlSelectImage.SelectedItem.ToString();
+             recordsDBEntities db = new recordsDBEntities();
+             db.spNewUser(txtName.Text, ddlSelectImage.SelectedItem.ToString());
+             // return to home page
+            
+            DBConnection db = new DBConnection();
+            db.OpenConnection();
+            db.AddPlayer(txtName.Text, ddlSelectImage.SelectedValue.ToString());
+            db.CloseConnection();
+             */
+            DBentityAccess addUser = new DBentityAccess();
+            addUser.AddPlayer(txtName.Text, ddlSelectImage.SelectedValue.ToString());
             this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
 
 
@@ -39,6 +56,10 @@ namespace RecordApp
 
         private void btnToMain_Click(object sender, RoutedEventArgs e)
         {
+
+            
+
+
             this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
         }
 

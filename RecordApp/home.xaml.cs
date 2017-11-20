@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace RecordApp
     /// </summary>
     public partial class home : Page
     {
+        public  recordsDBEntities db = new recordsDBEntities();
+
         public home()
         {
             InitializeComponent();
@@ -38,6 +41,19 @@ namespace RecordApp
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("PlayerInfo.xaml", UriKind.Relative));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+
+
+            var searched = from c in db.Games
+                           
+                           select c;
+            //Set listbox to display results
+            lbxGames.ItemsSource = searched.ToList();
+
+
         }
     }
 }
