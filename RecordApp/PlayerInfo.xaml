@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecordApp"
         mc:Ignorable="d"
-        Title="PlayerInfo" Height="350" Width="525">
+        Title="PlayerInfo" Height="350" Width="525" Loaded="Page_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="22*"/>
@@ -21,7 +21,11 @@
             <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="btnDeletePlayer" Content="Delete" Grid.Column="1" Click="btnDeletePlayer_Click" HorizontalAlignment="Center" Margin="0,34,0,0" Grid.Row="5" VerticalAlignment="Top" Width="75"/>
-        <Image x:Name="profileImage" HorizontalAlignment="Center" Height="100" Margin="130,5,98,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Border Name="imgBorder" BorderThickness="2,2,2,2" BorderBrush="Black" Height="104" Grid.Column="1" Margin="45,10,60,8" Grid.Row="1">
+            <Image x:Name="profileImage" Stretch="Fill"  Grid.Column="1" HorizontalAlignment="Center"  Height="98" Grid.Row="1" VerticalAlignment="Center" Width="103" Margin="0,0,0,0" />
+        </Border>
+
+
         <Label x:Name="lblPlayerName" HorizontalContentAlignment="Center" Content="" Grid.Column="1" HorizontalAlignment="Center" Margin="10,0" VerticalAlignment="Top" Width="187" />
         <Label x:Name="lblWin" HorizontalContentAlignment="Center" Content="Wins" Grid.Column="1" HorizontalAlignment="Left" Margin="15,5,0,0" Grid.Row="2" VerticalAlignment="Top" Height="25" Width="55"/>
         <Label x:Name="lblStar" HorizontalContentAlignment="Center" Content="Stars" Grid.Column="1" HorizontalAlignment="Left" Margin="15,5,0,0" Grid.Row="3" VerticalAlignment="Top" Height="25" Width="55"/>

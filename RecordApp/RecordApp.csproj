@@ -86,15 +86,28 @@
     </ApplicationDefinition>
     <Compile Include="DBConnection.cs" />
     <Compile Include="DBentityAccess.cs" />
+    <Compile Include="DeleteAll.xaml.cs">
+      <DependentUpon>DeleteAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteGames.xaml.cs">
+      <DependentUpon>DeleteGames.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Game.cs">
       <DependentUpon>recordGame.tt</DependentUpon>
     </Compile>
     <Compile Include="gameInstance.cs">
       <DependentUpon>recordGame.tt</DependentUpon>
     </Compile>
+    <Compile Include="ImageManager.cs" />
     <Compile Include="NumValidator.cs" />
+    <Compile Include="options.xaml.cs">
+      <DependentUpon>options.xaml</DependentUpon>
+    </Compile>
     <Compile Include="player.cs">
       <DependentUpon>recordGame.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rankings.xaml.cs">
+      <DependentUpon>Rankings.xaml</DependentUpon>
     </Compile>
     <Compile Include="recordGame.Context.cs">
       <AutoGen>True</AutoGen>
@@ -111,6 +124,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>recordGame.edmx</DependentUpon>
     </Compile>
+    <Compile Include="SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="topPlayer.cs">
       <DependentUpon>recordGame.tt</DependentUpon>
     </Compile>
@@ -119,6 +135,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddPlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeleteGames.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,11 +171,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PlayerInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PlayerProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rankings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -180,6 +216,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\new-super-mario-font-mario-party-9.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -225,6 +262,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\splash.jpg" />
+    <Resource Include="images\Waluigi.png" />
+    <Resource Include="images\Wario.png" />
+    <Resource Include="images\Donkey Kong.png" />
+    <Resource Include="images\Luigi.png" />
+    <Resource Include="images\Mario.png" />
+    <Resource Include="images\Peach.png" />
+    <Resource Include="images\Yoshi.png" />
     <Content Include="recordGame.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>recordGame.edmx</DependentUpon>

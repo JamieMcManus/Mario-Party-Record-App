@@ -37,13 +37,13 @@ namespace RecordApp
 
         }
 
-        public object ShowDataInGridView(string query)
+        public DataTable ShowDataInGridView(string query)
         {
             SqlDataAdapter dr = new SqlDataAdapter(query, ConnectionString);
-            DataSet ds = new DataSet();
+            DataTable ds = new DataTable();
             dr.Fill(ds);
-            object dataum = ds.Tables[0];
-            return dataum;
+           
+            return ds;
         }
         public void AddPlayer(string userName, string imagePath)
         {
@@ -57,6 +57,10 @@ namespace RecordApp
 
             SqlDataReader data = cmd.ExecuteReader();   
         }
+
+      
+
+
         public void AddGame(int p1ID,int p1Stars,int p1Coins, int p2ID, int p2Stars, int p2Coins, int p3ID, int p3Stars, int p3Coins, int p4ID, int p4Stars, int p4Coins)
         {
 
@@ -85,6 +89,22 @@ namespace RecordApp
 
 
         }
+
+        public int GetWins(int playerId)
+        {
+            SqlCommand cmd = new SqlCommand(
+                "getWinCount", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", playerId));
+
+            SqlParameter parmOUT = new SqlParameter("@wins", SqlDbType.Int);
+            parmOUT.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(parmOUT);
+            cmd.ExecuteNonQuery();
+            int returnVALUE = (int)cmd.Parameters["@wins"].Value;
+            return returnVALUE;
+        }
+       
 
 
     }

@@ -47,8 +47,10 @@ namespace RecordApp
             db.AddPlayer(txtName.Text, ddlSelectImage.SelectedValue.ToString());
             db.CloseConnection();
              */
+            ComboBoxItem ComboItem = (ComboBoxItem)ddlSelectImage.SelectedItem;
+            string path = ComboItem.Content.ToString();
             DBentityAccess addUser = new DBentityAccess();
-            addUser.AddPlayer(txtName.Text, ddlSelectImage.SelectedValue.ToString());
+            addUser.AddPlayer(txtName.Text, path);
             this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
 
 
@@ -92,11 +94,18 @@ namespace RecordApp
                 validatePlayerInfo();
             }
             
+
+
         }
 
         private void ddlSelectImage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             validatePlayerInfo();
+
+            ComboBoxItem ComboItem = (ComboBoxItem)ddlSelectImage.SelectedItem;
+            string name = @"\images\" + ComboItem.Content.ToString()+".png";
+            string source = @"\images\" + ddlSelectImage.SelectionBoxItem.ToString();
+            image.Source = new BitmapImage(new Uri(name, UriKind.Relative));
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
