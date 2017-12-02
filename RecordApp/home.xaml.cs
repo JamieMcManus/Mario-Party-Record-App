@@ -91,23 +91,10 @@ namespace RecordApp
             DataTable ds= con.ShowDataInGridView(q);
             con.CloseConnection();
 
-            /* InitializeComponent();
-
-            lbxPlayers.ItemsSource = query.ToList();
-            lbxPlayers.DisplayMemberPath = GetDetails();
-            lbxPlayers.SelectedValuePath = "playerID";  
-            
-            //lbxPlayers.ItemsSource = query;
            
-            lbxPlayers.SelectedValuePath = "playerID";
-            DataContext = query.ToList();
-
-            lbxPlayers.DataContext = query.ToList();
-            */
-            //lbxPlayers.ItemsSource = ds.DefaultView;
             Binding matBinding = new Binding() { Source = ds.DefaultView };
             lbxPlayers.SetBinding(ListView.ItemsSourceProperty, matBinding); 
-            //lbxPlayers.SelectedValue=
+            
 
 
 

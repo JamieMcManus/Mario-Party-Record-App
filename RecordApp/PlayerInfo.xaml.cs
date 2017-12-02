@@ -47,13 +47,9 @@ namespace RecordApp
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            //populate with player info from ID passed in
 
-
-            /*  var query = from p in db.players
-
-                         where p.playerId == ID
-                         select new { p.username, };
-                         */
+           
             string query = "select p.imagePath, SUM(g.coins) as Coins ,sum(g.stars) as Stars ,p.username From players as p JOIN gameInstance as g ON p.playerId = g.playerId WHERE p.playerId = " +ID +" Group by p.imagePath,p.username";
            
             DBConnection d = new DBConnection();

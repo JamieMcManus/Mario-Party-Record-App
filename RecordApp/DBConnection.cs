@@ -12,7 +12,7 @@ namespace RecordApp
 {
     public class DBConnection
     {
-        string ConnectionString = @"data source=(LocalDB)\MSSQLLocalDB;initial catalog=recordsDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;";
+        string ConnectionString = @"data source=(LocalDB)\MSSQLLocalDB;initial catalog=recordsDB; integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;";
         SqlConnection con;
 
         public void OpenConnection()
@@ -47,7 +47,7 @@ namespace RecordApp
         }
         public void AddPlayer(string userName, string imagePath)
         {
-           
+           // add players via stored procedure
             SqlCommand cmd = new SqlCommand(
                 "spNewUser", con);
                     
