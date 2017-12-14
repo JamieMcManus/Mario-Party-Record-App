@@ -1,0 +1,60 @@
+Create table Game(
+
+gameID int identity(1,1),
+dateAdded Date not null,
+Primary key(gameID)
+
+)
+
+Create Table gameInstance (
+instanceID int identity(1,1),
+gameId int not null,
+playerId int not null,
+stars int not null,
+coins int not null,
+primary key(instanceId)
+)
+
+Create table players(
+playerId int identity(1,1),
+joinedOn date not null,
+username varchar (30) not null,
+primary key (playerId)
+)
+
+ALTER TABLE gameInstance
+ADD Foreign key(playerID)
+references players(playerId)
+
+ALTER TABLE gameInstance
+ADD Foreign key(gameID)
+references game(gameId)
+
+CREATE VIEW [topPlayers] AS 
+Select players.username, sum(stars) AS Stars, sum(coins) AS Coins
+From players JOIN 
+gameInstance ON gameInstance.playerId = players.playerId
+group by players.playerId, players.username
+
+
+CREATE VIEW WINNERS AS 
+with cte as 
+(
+  select *, 
+  rank() over (partition by gameId 
+             order by Stars desc) rnk
+  from gameInstance
+
+) select * from cte where rnk = 1;
+
+
+alter PROC getWinCount
+	@id int, @wins int out AS 
+IF EXISTS (select * from Winners WHERE playerId=@id)
+ Select  @wins = Count(*)
+FROM Winners
+WHERE playerId =@id
+GROUP BY playerId 
+Else 
+set @wins=0
+return @wins
