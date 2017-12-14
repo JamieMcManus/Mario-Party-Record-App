@@ -20,7 +20,6 @@
             <ColumnDefinition Width="40*"/>
             <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="btnDeletePlayer" Content="Delete" Grid.Column="1" Click="btnDeletePlayer_Click" HorizontalAlignment="Center" Margin="0,34,0,0" Grid.Row="5" VerticalAlignment="Top" Width="75"/>
         <Border Name="imgBorder" BorderThickness="2,2,2,2" BorderBrush="Black" Height="104" Grid.Column="1" Margin="45,10,60,8" Grid.Row="1">
             <Image x:Name="profileImage" Stretch="Fill"  Grid.Column="1" HorizontalAlignment="Center"  Height="98" Grid.Row="1" VerticalAlignment="Center" Width="103" Margin="0,0,0,0" />
         </Border>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -113,7 +114,21 @@ namespace RecordApp
         private void txtP4Coin_TextChanged(object sender, TextChangedEventArgs e)
         {
             verifyGameInfo();
+            NumCheck(txtP4Coin.Text);
         }
+        public void NumCheck(string input)
+        {
+            Regex regex = new Regex("[^0-9.-]+"); //regex that matches disallowed text
+           if (!regex.IsMatch(input))
+            {
+                btnAddGame.IsEnabled = true;
+            }
+           else
+            {
+                btnAddGame.IsEnabled = false;
+            }
+        }
+
         private void verifyGameInfo()
         {
             if(dbPlayer1.SelectedItem==null || txtP1Coin.Text=="" || txtP1Star.Text == "")
@@ -163,6 +178,13 @@ namespace RecordApp
             dbPlayer4.SelectedValuePath = "playerId";
 
             
+        }
+
+        private void txtP1Star_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //limit input to numeric only
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -29,9 +29,7 @@ namespace RecordApp
 
         private void btnDelUsers_Click(object sender, RoutedEventArgs e)
         {
-            /*  d.OpenConnection();
-             d.ExecQueries("DELETE FROM gameInstance DELETE FROM game DELETE FROM players");
-             d.CloseConnection(); */
+            
 
             MessageBoxResult result = MessageBox.Show("Are you sure you wish to delete all user profiles? This will delete all users and corresponding game records", "Confirmation", MessageBoxButton.YesNo);
             switch (result)
@@ -55,9 +53,7 @@ namespace RecordApp
 
         private void btnDelAll_Click(object sender, RoutedEventArgs e)
         {
-            /* d.OpenConnection();
-             d.ExecQueries("DELETE FROM gameInstance DELETE FROM game ");
-             d.CloseConnection(); */
+            
             MessageBoxResult result = MessageBox.Show("Are you sure you wish to delete all game records? User profiles will be retained", "Confirmation", MessageBoxButton.YesNo);
             switch (result)
             {

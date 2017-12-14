@@ -23,6 +23,8 @@ namespace RecordApp
     /// </summary>
     public partial class AddPlayer : Page
     {
+        public DBConnection d = new DBConnection();
+
         public AddPlayer()
         {
             InitializeComponent();
@@ -31,26 +33,12 @@ namespace RecordApp
         private void button_Click(object sender, RoutedEventArgs e)
         {
             // add new player
-            // var username = new SqlParameter("@username",txtName.Text);
-
-            /* player p = new player();
-             p.username = txtName.Text;
-             DateTime d =  DateTime.Today;
-             p.joinedOn = d;
-             p.imagePath = ddlSelectImage.SelectedItem.ToString();
-             recordsDBEntities db = new recordsDBEntities();
-             db.spNewUser(txtName.Text, ddlSelectImage.SelectedItem.ToString());
-             // return to home page
             
-            DBConnection db = new DBConnection();
-            db.OpenConnection();
-            db.AddPlayer(txtName.Text, ddlSelectImage.SelectedValue.ToString());
-            db.CloseConnection();
-             */
             ComboBoxItem ComboItem = (ComboBoxItem)ddlSelectImage.SelectedItem;
             string path = ComboItem.Content.ToString();
-            DBentityAccess addUser = new DBentityAccess();
-            addUser.AddPlayer(txtName.Text, path);
+            d.OpenConnection();
+            d.AddPlayer(txtName.Text, path);
+            d.CloseConnection();
             this.NavigationService.Navigate(new Uri("home.xaml", UriKind.Relative));
 
 

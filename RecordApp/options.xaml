@@ -21,6 +21,7 @@
 
         <Button Name ="btnDelUsers" Click ="btnDelUsers_Click" Content="Delete All" HorizontalAlignment="Left" Margin="163,10,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
         <Button Name ="btnDelAll" Click="btnDelAll_Click" Content="Delete Records" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1" Grid.Column="1"/>
+        <Image Grid.ColumnSpan="2" Source="images/options.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="133" Margin="163,63,0,0" VerticalAlignment="Top" Width="170"/>
 
     </Grid>
 </Page>

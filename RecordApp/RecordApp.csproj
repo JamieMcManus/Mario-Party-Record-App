@@ -104,21 +104,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DBConnection.cs" />
-    <Compile Include="DBentityAccess.cs" />
-    <Compile Include="DeleteAll.xaml.cs">
-      <DependentUpon>DeleteAll.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DeleteGames.xaml.cs">
-      <DependentUpon>DeleteGames.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Game.cs">
       <DependentUpon>recordGame.tt</DependentUpon>
     </Compile>
     <Compile Include="gameInstance.cs">
       <DependentUpon>recordGame.tt</DependentUpon>
     </Compile>
-    <Compile Include="ImageManager.cs" />
-    <Compile Include="NumValidator.cs" />
     <Compile Include="options.xaml.cs">
       <DependentUpon>options.xaml</DependentUpon>
     </Compile>
@@ -154,14 +145,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddPlayer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeleteAll.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DeleteGames.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,6 +278,7 @@
     <Resource Include="images\Mario.png" />
     <Resource Include="images\Peach.png" />
     <Resource Include="images\Yoshi.png" />
+    <Resource Include="images\options.jpg" />
     <Content Include="recordGame.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>recordGame.edmx</DependentUpon>
@@ -309,12 +293,12 @@
   <ItemGroup>
     <PublishFile Include="Mario Party Records.pdb">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
